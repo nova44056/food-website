@@ -1,0 +1,148 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 5%;
+  box-shadow: var(--box-shadow);
+  position: sticky;
+  flex-wrap: wrap;
+  background-color: white;
+  top: 0;
+  z-index: 9999;
+}
+
+.header > :not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo > .icon {
+  color: var(--green);
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.logo > span {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--black);
+}
+
+.nav {
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border-bottom: 1px solid #eee;
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+
+.nav.expand {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.nav > ul {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  padding: 1rem;
+}
+
+.nav > ul > li {
+  padding: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.nav > ul > li.active {
+  background-color: var(--green);
+}
+
+.nav > ul > li:hover {
+  background-color: var(--green);
+  opacity: 0.5;
+}
+
+.nav > ul > li:hover > a {
+  color: white;
+}
+
+.nav > ul > li.active > a {
+  color: white;
+}
+
+.nav > ul > li:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.nav > ul > li > a {
+  text-decoration: none;
+  color: var(--light-color);
+}
+
+.icons {
+  display: flex;
+}
+
+.icons > div {
+  background-color: #eee;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--black);
+  cursor: pointer;
+}
+
+.icons > div:hover {
+  background-color: var(--green);
+  color: white;
+  transition: transform ease-in-out 0.3s;
+  transform: rotate(360deg);
+}
+
+.icons > :not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+@media screen and (min-width: 325px) {
+  .header {
+    justify-content: space-between;
+  }
+
+  .header > :not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .icons > :first-child {
+    display: none;
+  }
+
+  .nav {
+    position: initial;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    border-bottom: none;
+    width: auto;
+  }
+
+  .nav > ul {
+    flex-direction: row;
+    padding: 0;
+  }
+
+  .nav > ul > li:not(:last-child) {
+    margin-bottom: 0;
+    margin-right: 1rem;
+  }
+}
